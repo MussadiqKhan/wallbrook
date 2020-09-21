@@ -4,6 +4,11 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.post-title {
+  max-width: 500px !important;
 }
 
 .main {
@@ -680,7 +685,7 @@ article h2 {
   line-height: 140%;
   padding: 24px 0px 8px 0px;
   color: #000066;
-  max-width: 500px;
+  max-width: 351px;
 }
 article a {
   text-decoration: none !important;
@@ -764,6 +769,19 @@ article span {
 .blog-post-content p {
   color: #000066;
   line-height: 160%;
+}
+.blog-post-content ul li,
+.blog-post-content ol li,
+.privacy-content ul li,
+.privacy-content ol li {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 160%;
+  padding-top: 5px !important;
+  color: #000066 !important;
+  text-transform: none !important;
+  margin-left: 30px !important;
+  letter-spacing: 0px !important;
 }
 .blog-post-content p {
   padding: 5px 0px;
@@ -868,8 +886,6 @@ article span {
 .privacy-title {
   background: #f2f7f2;
   padding: 40px 0;
-  display: flex;
-  flex-direction: row;
 }
 .privacy-title h1 {
   font-family: Inter;
@@ -892,7 +908,7 @@ article span {
   line-height: 160%;
 }
 .privacy-content {
-  padding: 130px 0 50px 0px;
+  padding: 130px 0 50px 0;
 }
 .privacy-content h1,
 .privacy-content h2,
@@ -901,9 +917,61 @@ article span {
   font-family: Inter;
   font-style: normal;
   font-weight: 600;
-  text-align: justify;
   letter-spacing: 0.01px;
   color: #000066;
+}
+
+.risk iframe {
+  width: 100vw !important;
+  height: 90vh !important;
+  overflow-x: hidden;
+}
+
+/* Track */
+
+/* Handle */
+
+/* 404 */
+
+.main-404 {
+  height: 100vh;
+  margin: 0 auto;
+}
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .error {
+  font-size: 150px;
+  color: #006;
+  text-shadow: 1px 1px 1px #006, 2px 2px 1px #006, 3px 3px 1px #006,
+    4px 4px 1px #006, 5px 5px 1px #006, 6px 6px 1px #006, 7px 7px 1px #006,
+    8px 8px 1px #006, 25px 25px 8px rgba(0, 0, 0, 0.2);
+}
+
+.page {
+  margin: 2rem 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #006;
+}
+
+.back-home {
+  display: inline-block;
+  border: 2px solid #006;
+  color: #006;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.75rem 1rem 0.6rem;
+  transition: all 0.2s linear;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+.back-home:hover {
+  background: #006;
+  color: #ddd;
 }
 
 /* Media Queries */
@@ -1200,5 +1268,10 @@ article span {
   .child-text h3 {
     width: 540px;
     max-width: 450px;
+  }
+}
+@media print {
+  .no-print {
+    display: none;
   }
 }
