@@ -1,5 +1,4 @@
 import React from "react"
-import PrintComponents from "react-print-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import remark from "remark"
 import recommended from "remark-preset-lint-recommended"
@@ -8,6 +7,8 @@ import { Helmet } from "react-helmet"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import SEO from "../components/seo"
+const { detect } = require("detect-browser")
+const browser = detect()
 
 const FinancialServicesGuide = () => {
   const data = useStaticQuery(graphql`
@@ -28,6 +29,12 @@ const FinancialServicesGuide = () => {
     const dataHtml = toHTML(data)
 
     return { __html: dataHtml }
+  }
+
+  const onClick = () => {
+    setTimeout(function () {
+      window.print()
+    }, 100)
   }
 
   return (
@@ -54,22 +61,25 @@ const FinancialServicesGuide = () => {
             data.markdownRemark.frontmatter.policy
           )}
         ></div>
-        <PrintComponents
-          trigger={
-            <button className="main-button" style={{ marginBottom: "50px" }}>
+
+        {browser && browser.name == "firefox" ? (
+          <div></div>
+        ) : (
+          <div className="no-print">
+            <button
+              onClick={onClick}
+              className="main-button"
+              style={{ marginBottom: "50px" }}
+            >
               Print
             </button>
-          }
-        >
-          <div
-            className="privacy-content"
-            dangerouslySetInnerHTML={createMarkup(
-              data.markdownRemark.frontmatter.policy
-            )}
-          ></div>
-        </PrintComponents>
+          </div>
+        )}
       </div>
-      <Footer />
+
+      <div className="no-print">
+        <Footer />
+      </div>
     </div>
   )
 }
