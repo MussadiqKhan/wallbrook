@@ -868,6 +868,8 @@ article span {
 .privacy-title {
   background: #f2f7f2;
   padding: 40px 0;
+  display: flex;
+  flex-direction: row;
 }
 .privacy-title h1 {
   font-family: Inter;
@@ -882,7 +884,7 @@ article span {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 160%;
   text-align: justify;
   color: #000066;
@@ -890,7 +892,7 @@ article span {
   line-height: 160%;
 }
 .privacy-content {
-  padding: 130px 0;
+  padding: 130px 0 50px 0px;
 }
 .privacy-content h1,
 .privacy-content h2,
